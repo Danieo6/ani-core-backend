@@ -1,5 +1,4 @@
-require('dotenv').config({ path: `${__dirname}/../.env` });
-
+import 'dotenv/config';
 import Config from './config';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
