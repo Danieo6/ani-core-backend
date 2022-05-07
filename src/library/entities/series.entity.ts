@@ -1,6 +1,5 @@
 import { AggregateRoot } from '@nestjs/cqrs';
 import { v4 as uuidv4 } from 'uuid';
-import { Genre } from './genre.entity';
 
 type SeriesProps = {
   _id?: string;
@@ -8,8 +7,9 @@ type SeriesProps = {
   description: string;
   releaseYear: number;
   releaseSeason: string;
-  // genre: Genre[];
+  genre: string[];
   otherNames: string[];
+  coverImage: string;
 };
 
 export class Series extends AggregateRoot {
@@ -18,8 +18,9 @@ export class Series extends AggregateRoot {
   private readonly description: string;
   private readonly releaseYear: number;
   private readonly releaseSeason: string;
-  // private readonly genre: Genre[];
+  private readonly genre: string[];
   private readonly otherNames: string[];
+  private readonly coverImage: string;
 
   constructor(props: SeriesProps) {
     super();
@@ -29,8 +30,9 @@ export class Series extends AggregateRoot {
     this.description = props.description;
     this.releaseYear = props.releaseYear;
     this.releaseSeason = props.releaseSeason;
-    // this.genre = props.genre;
+    this.genre = props.genre;
     this.otherNames = props.otherNames;
+    this.coverImage = props.coverImage;
   }
 
   snapshot(): SeriesProps {
@@ -40,7 +42,9 @@ export class Series extends AggregateRoot {
       description: this.description,
       releaseYear: this.releaseYear,
       releaseSeason: this.releaseSeason,
+      genre: this.genre,
       otherNames: this.otherNames,
+      coverImage: this.coverImage,
     };
   }
 }

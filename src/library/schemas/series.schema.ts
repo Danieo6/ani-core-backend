@@ -22,11 +22,14 @@ export class Series {
   @Prop()
   releaseSeason: string;
 
-  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: Genre }])
-  genre: Genre[];
+  @Prop([String])
+  genre: string[];
 
   @Prop([String])
   otherNames: string[];
+
+  @Prop()
+  coverImage: string;
 }
 
 export const SeriesSchema = SchemaFactory.createForClass(Series);

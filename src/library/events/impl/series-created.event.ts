@@ -1,3 +1,5 @@
+import { Series } from 'src/library/entities/series.entity';
+
 export class SeriesCreatedEvent {
-  constructor(public readonly _id: number) {}
+  constructor(public readonly series: Series) {}
 }

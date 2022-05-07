@@ -3,6 +3,7 @@ export class CreateSeriesDto {
   description: string;
   releaseYear: number;
   releaseSeason: string;
-  // genre: string[];
+  genre: string[];
   otherNames: string[];
+  coverImage: string;
 }
